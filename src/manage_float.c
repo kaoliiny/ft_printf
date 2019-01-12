@@ -6,13 +6,13 @@
 /*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/24 20:05:12 by kaoliiny          #+#    #+#             */
-/*   Updated: 2019/01/10 17:08:34 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/12 04:39:40 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void print_f(size_t integer, char	*floating, t_format *f)
+void	print_f(size_t integer, char	*floating, t_format *f)
 {
 	char *x;
 
@@ -24,23 +24,22 @@ void print_f(size_t integer, char	*floating, t_format *f)
 		manage_buff(*floating++, f);
 }
 
-void handling_f(t_format *f)
+void	handling_f(t_format *f)
 {
-	char	*x;
+	int			i;
+	char		*x;
+	size_t		int_p;
 	long double fl;
 	long double fl_p;
-	size_t int_p;
-	int i;
 
 	i = -1;
-	
 	if (f->fl.lll)
 	{
 		fl = va_arg(f->ap, long double);
 		int_p = fl;
 		fl_p = fl - int_p;
 		x = (char *)malloc(sizeof(char) * f->fl.precision);
-		while(++i < f->fl.precision)
+		while (++i < f->fl.precision)
 		{
 			x[i] = (fl_p * 10) + '0';
 			fl_p = (fl_p * 10) - (x[i] - '0');
@@ -53,7 +52,7 @@ void handling_f(t_format *f)
 		fl_p = fl - int_p;
 		(!f->fl.precision) && (f->fl.precision = 6);
 		x = (char *)malloc(sizeof(char) * f->fl.precision);
-		while(++i < f->fl.precision)
+		while (++i < f->fl.precision)
 		{
 			x[i] = (fl_p * 10) + '0';
 			fl_p = (fl_p * 10) - (x[i] - '0');

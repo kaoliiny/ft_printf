@@ -14,45 +14,47 @@ static int		check_base(t_format *f)
 }
 
 static void		print_prefix(size_t number, int base
-, const char width_chr, t_format *f)
+, const char space, t_format *f)
 {
-	f->neg_value && MWID--;
-	f->fl.plus && !f->neg_value && (base == 10) && MWID--;
-	f->fl.hash && number && (base == 8 || base == 16) && MWID--;
-	f->fl.hash && number && (base == 16) && MWID--;
+	f->fl.neg_value && MWID--;
+	f->fl.plus && !f->fl.neg_value && (base == 10) && MWID--;
+	f->fl.hash && number && (base == 8) && MWID--;
+	f->fl.hash && number && (base == 16) && (MWID -= 2);
 	if (!f->fl.zero && !f->fl.minus)
 		while (MWID-- > 0)
-			manage_buff(width_chr, f);
+			manage_buff(space, f);
 	f->fl.space && manage_buff(' ', f);
-	f->neg_value && manage_buff('-', f);
-	f->fl.plus && !f->neg_value && base == 10 && manage_buff('+', f);
-	f->fl.hash && number && (base == 8 || base == 16) && manage_buff('0', f);
-	f->fl.hash && number && (base == 16)
+	f->fl.neg_value && manage_buff('-', f);
+	f->fl.plus && !f->fl.neg_value && base == 10 && manage_buff('+', f);
+	f->fl.hash && (base == 8) && manage_buff('0', f);
+	f->fl.hash && number && (base == 16) && manage_buff('0', f)
 	&& manage_buff(f->fl.conv == 'X' ? 'X' : 'x', f);
 	if (f->fl.zero && !f->fl.minus)
 		while (MWID-- > 0)
-			manage_buff(width_chr, f);
+			manage_buff(space, f);
 }
 
 void			handling_decimal(size_t number, t_format *f)
 {
 	char		*num;
 	int			num_len;
-	const char	width_chr = f->fl.zero ? '0' : ' ';
-	const char	prec_chr = f->fl.zero ? ' ' : '0';
+	bool		is_print;
+	char		space;
 	const int	base = check_base(f);
 
 	num = print_base(number, base, f);
 	num_len = ft_strlen(num);
 	PREC -= num_len + (f->fl.hash && number && (base == 8));
 	MWID -= (PREC > 0 ? PREC : 0) + num_len;
-
-	print_prefix(number, base, width_chr, f);
+	space = (PREC <= 0 && f->fl.zero) ? '0' : ' ';
+	print_prefix(number, base, space, f);
+	is_print = (!(number == 0 &&
+	((f->fl.prec_dot && PREC <= 0) || (base == 8 && f->fl.hash))));
 	while (PREC-- > 0)
-		manage_buff(prec_chr, f);
-	// if (PREC != num_len - 1)
+		manage_buff('0', f);
+	if (is_print)
 		while (*num)
 			manage_buff(*num++, f);
 	while (MWID-- > 0)
-		manage_buff(width_chr, f);
+		manage_buff(space, f);
 }

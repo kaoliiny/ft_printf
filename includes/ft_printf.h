@@ -5,7 +5,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "stdbool.h"
-# include "libft/libft.h"
+# include "libft.h"
 
 # define BUFF_SIZE 4096
 
@@ -29,6 +29,8 @@ typedef struct	s_flags
 	char		conv;
 	int			min_width;
 	int			precision;
+	bool		prec_dot;
+	bool		neg_value;
 
 }				flags;
 
@@ -38,13 +40,13 @@ typedef struct	s_format
 	va_list		ap;
 	int			sum;
 	char		*buff;
-	bool		neg_value;
 
 }				t_format;
 
 void			handling_c(t_format *f);
 void			handling_s(t_format *f);
 void			handling_f(t_format *f);
+void			handling_percent(t_format *f);
 
 void			handling_decimal(size_t num, t_format *f);
 void			check_conv(const char *str, t_format *f);

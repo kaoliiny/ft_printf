@@ -6,7 +6,7 @@
 /*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 02:06:00 by kaoliiny          #+#    #+#             */
-/*   Updated: 2019/01/10 17:21:29 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/12 10:01:14 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		int_size(size_t n)
 {
-	int	size;
+	size_t	size;
 
-	size = 1;
+	size = (n == 0) ? 0 : 1;
 	while ((n /= 10) > 0)
 		size++;
 	return (size);
@@ -67,4 +67,3 @@ char	*print_base(size_t num, const int base, t_format *f)
 		x[i] = num + '0';
 	return (swap(i, x));
 }
-
