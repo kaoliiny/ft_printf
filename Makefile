@@ -6,11 +6,11 @@
 #    By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/13 19:52:44 by kaoliiny          #+#    #+#              #
-#    Updated: 2019/01/12 12:30:52 by kaoliiny         ###   ########.fr        #
+#    Updated: 2019/01/19 17:42:30 by kaoliiny         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-.PHONY: all clean fclean re test mfclean mre
+.PHONY: all clean fclean re mfclean mre
 
 NAME		=	libftprintf.a
 SRC_D		=	src/
@@ -19,13 +19,13 @@ OBJ_D		=	.obj/
 LIB			=	libft/
 LIB_N		=	libft.a
 
-SRC			=	manage_float manage_di manage_cs manage_conv ft_printf add_ft
+SRC			=	manage_diouxXp manage_cs_per manage_conv ft_printf add_ft manage_float
 SRCS		=	$(addprefix $(SRC_D), $(addsuffix .c, $(SRC)))
 OBJ			=	$(addprefix $(OBJ_D), $(SRCS:%.c=%.o))
 INCLUDE		=	-I includes/ -I $(LIB)
 
 CC			=	clang
-CFLAGS		=	-g #-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror
 
 all: $(NAME)
 
