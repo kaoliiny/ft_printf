@@ -6,13 +6,20 @@
 int main()
 {
 
+//printf("%d\n", printf("!%12.2i!\n", 120));
+//printf("%d\n", ft_printf("!%12.2i!\n", 120));
+// printf("!% 10.7i!\n", -32798308);
+// ft_printf("!% 10.7i!\n", -32798308);
+printf("42%2.1zi42\n", 0); 
+ft_printf("42%2.1zi42", 0); 
+// ft_printf("\\!/%063.26hhi\\!/\n", -2143040870);
+// printf("\\!/%063.26hhi\\!/", -2143040870);
 //printf("{%.*d}\n", 5, 42);
 //ft_printf("{%.*d}\n", 5, 42);
 // printf("{%.*s}\n", -5, "42");
 // ft_printf("{%.*s}\n", -5, "42");
-printf("%d\n", printf("{%f}{%F}|\n", 1.42, 1.42));
-printf("%d\n", ft_printf("{%f}{%F}|\n", 1.42, 1.42));
-
+// printf("%d\n", printf("{%f}{%F}|\n", 1.42, 1.42));
+// printf("%d\n", ft_printf("{%f}{%F}|\n", 1.42, 1.42));
 //   ft_printf("{%.*d}|\n", -5, 42);
 //     printf("{%.*d}|\n", -5, 42);
  //printf("%*.*d\n", 0, 3, 0);
