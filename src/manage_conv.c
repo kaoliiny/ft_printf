@@ -6,7 +6,7 @@
 /*   By: kaoliiny <kaoliiny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/24 20:05:12 by kaoliiny          #+#    #+#             */
-/*   Updated: 2019/01/17 15:55:34 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/21 22:57:28 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,15 @@ bool			check_conv(const char *str, t_format *f)
 	(*str == 'X') ? f->fl.conv = 'X' :
 	(f->fl.conv = ft_tolower(*str)) &&
 	ft_isupper_alpha(*str) && (f->fl.l = true);
-	(f->fl.conv == 'p') && (f->fl.hash = true) && (f->fl.z = true);
+	(f->fl.conv == 'p') && (f->fl.hash = true)
+	&& (f->fl.z = true);
 	if (f->fl.conv == 'd' || f->fl.conv == 'i')
 		handling_decimal(get_signed(f), f);
 	else if (f->fl.conv == 'o' || f->fl.conv == 'u'
 	|| ft_tolower(f->fl.conv) == 'x' || f->fl.conv == 'p')
 		handling_decimal(get_unsigned(f), f);
 	else if (f->fl.conv == 'c')
-		handling_c(f);
+		handling_c(f) && (st = 1);
 	else if (f->fl.conv == 's')
 		handling_s(f) && (st = 1);
 	else if (f->fl.conv == 'f')

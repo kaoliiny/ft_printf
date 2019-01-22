@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_ft.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: kaoliiny <kaoliiny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 02:06:00 by kaoliiny          #+#    #+#             */
-/*   Updated: 2019/01/19 19:52:54 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/21 22:49:33 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,15 @@ char	*swap(int j, char source[])
 {
 	int		i;
 	char	*x;
+	char	*tmp;
 
 	i = 0;
 	x = (char *)malloc(sizeof(char) * (j + 1));
+	tmp = x;
 	while (j >= 0)
 		x[i++] = source[j--];
 	x[i] = '\0';
+	free(tmp);
 	return (x);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: kaoliiny <kaoliiny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/24 20:04:57 by kaoliiny          #+#    #+#             */
-/*   Updated: 2019/01/19 21:36:35 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/21 22:58:26 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	print_buff(t_format *f)
 	return (1);
 }
 
-bool		manage_buff(int c, t_format *f)
+bool	manage_buff(int c, t_format *f)
 {
 	f->buff[f->sum++] = c;
 	if (!f->sum % BUFF_SIZE)
@@ -30,7 +30,7 @@ bool		manage_buff(int c, t_format *f)
 	return (true);
 }
 
-bool		manage_flags(const char **str, t_format *f)
+bool	manage_flags(const char **str, t_format *f)
 {
 	return ((**str == '0' && (f->fl.zero = true))
 	|| (**str == '+' && (f->fl.plus = true))
@@ -47,7 +47,7 @@ bool		manage_flags(const char **str, t_format *f)
 	|| (**str == '*' && handling_char(0, f)));
 }
 
-bool		manage_field(const char *str, t_format *f)
+bool	manage_field(const char *str, t_format *f)
 {
 	while (*str)
 		if (*str == '%' && *(++str))
@@ -75,7 +75,7 @@ bool		manage_field(const char *str, t_format *f)
 	return (0);
 }
 
-int			ft_printf(const char *format, ...)
+int		ft_printf(const char *format, ...)
 {
 	static t_format		f;
 

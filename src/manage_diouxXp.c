@@ -6,7 +6,7 @@
 /*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 00:01:03 by kaoliiny          #+#    #+#             */
-/*   Updated: 2019/01/20 03:55:36 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/22 17:20:44 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,11 @@ static int		check_base(t_format *f)
 static void		print_prefix(size_t number, int base,
 const char space, t_format *f)
 {
-	// PREC >= -1 && PREC + 4 < int_size(number) && base == 16 && MWID--;
 	f->fl.neg_value && MWID--;
 	f->fl.space && !f->fl.plus && !f->fl.neg_value && MWID--;
 	f->fl.plus && !f->fl.neg_value && base == 10 && MWID--;
-	f->fl.hash && number && (base == 8) && MWID--;
-	f->fl.hash && (base == 16) && (MWID -= 2);
+	f->fl.hash && number && base == 8 && MWID--;
+	f->fl.hash && base == 16 && (number || f->fl.conv == 'p') && (MWID -= 2);
 	if (!(!f->fl.prec_dot && f->fl.zero) && !f->fl.minus)
 		while (MWID-- > 0)
 			manage_buff(space, f);

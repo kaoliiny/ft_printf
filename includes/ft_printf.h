@@ -6,7 +6,7 @@
 /*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/12 12:36:40 by kaoliiny          #+#    #+#             */
-/*   Updated: 2019/01/19 21:14:20 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/21 17:54:22 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ typedef struct	s_format
 
 int				ft_printf(const char *format, ...);
 
-void			handling_c(t_format *f);
+bool			handling_c(t_format *f);
 bool			handling_s(t_format *f);
 void			handling_f(t_format *f);
 bool			handling_char(int chr, t_format *f);

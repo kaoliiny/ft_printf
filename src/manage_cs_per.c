@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   manage_cs_per.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: kaoliiny <kaoliiny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 02:05:22 by kaoliiny          #+#    #+#             */
-/*   Updated: 2019/01/19 23:22:18 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/21 23:00:55 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-bool is_stracii(char *tmp)
+bool	is_stracii(char *tmp)
 {
 	while (*tmp)
 		if (!ft_isascii(*tmp++))
@@ -21,13 +20,14 @@ bool is_stracii(char *tmp)
 	return (1);
 }
 
-void	handling_c(t_format *f)
+bool	handling_c(t_format *f)
 {
 	while (--f->fl.min_width > 0 && !f->fl.minus)
 		(f->fl.zero) ? manage_buff('0', f) : manage_buff(' ', f);
 	manage_buff(va_arg(f->ap, int), f);
 	while (f->fl.min_width-- > 0 && f->fl.minus)
 		manage_buff(' ', f);
+	return (0);
 }
 
 bool	handling_s(t_format *f)
@@ -50,7 +50,7 @@ bool	handling_s(t_format *f)
 	while (tmp[++i] && (PREC-- > 0 || !f->fl.prec_dot))
 		manage_buff(tmp[i], f);
 	while ((f->fl.min_width-- - (i)) > 0 && f->fl.minus)
-		(f->fl.zero) ? manage_buff('0', f) : manage_buff(' ', f);
+		manage_buff(' ', f);
 	return (0);
 }
 
@@ -76,5 +76,5 @@ bool	handling_char(int chr, t_format *f)
 		while (f->fl.min_width-- > 0 && f->fl.minus)
 			manage_buff(' ', f);
 	}
-	return(1);
+	return (1);
 }
