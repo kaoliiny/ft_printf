@@ -6,13 +6,14 @@
 /*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/12 12:36:40 by kaoliiny          #+#    #+#             */
-/*   Updated: 2019/01/21 17:54:22 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/22 22:58:50 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# include "colours.h"
 # include <stdarg.h>
 # include "stdbool.h"
 # include "libft.h"

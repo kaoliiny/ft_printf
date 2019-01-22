@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiny <kaoliiny@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/24 20:04:57 by kaoliiny          #+#    #+#             */
-/*   Updated: 2019/01/21 22:58:26 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/22 23:10:33 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 bool	print_buff(t_format *f)
 {

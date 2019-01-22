@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_diouxXp.c                                   :+:      :+:    :+:   */
+/*   manage_diouxxp.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 00:01:03 by kaoliiny          #+#    #+#             */
-/*   Updated: 2019/01/22 17:20:44 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/22 23:10:47 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void			handling_decimal(size_t number, t_format *f)
 
 	num = print_base(number, base, f);
 	num_len = ft_strlen(num);
-	!PREC && f->fl.prec_dot && MWID++;
+	!PREC && !number && f->fl.prec_dot && MWID++;
 	PREC -= num_len + (f->fl.hash && number && base == 8);
 	MWID -= (PREC > 0 ? PREC : 0) + num_len;
 	space = (!f->fl.prec_dot && f->fl.zero) ? '0' : ' ';
