@@ -15,16 +15,16 @@
 bool	print_buff(t_format *f)
 {
 	write(1, f->buff, f->sum);
-	return (1);
+	return (true);
 }
 
 bool	manage_buff(int c, t_format *f)
 {
 	f->buff[f->sum++] = c;
-	if (!f->sum % BUFF_SIZE)
+	if (!(f->sum % BUFF_SIZE))
 	{
-		ft_bzero(&f->buff, 4096);
 		print_buff(f);
+		ft_bzero(&f->buff, 4096);
 	}
 	return (true);
 }
