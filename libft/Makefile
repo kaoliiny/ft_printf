@@ -6,7 +6,7 @@
 #    By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/27 19:37:45 by kaoliiny          #+#    #+#              #
-#    Updated: 2018/11/17 17:49:32 by kaoliiny         ###   ########.fr        #
+#    Updated: 2019/07/11 21:32:30 by kaoliiny         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,7 @@ SRCS :=	ft_strcmp \
 
 SRC := $(addsuffix .c, $(SRCS))
 INC := includes
-CFLAGS := -Wall -Wextra -Werror
+CFLAGS := -Wall -Wextra -Werror -O2
 LIBS := $(SRC:%.c=%.o)
 
 
